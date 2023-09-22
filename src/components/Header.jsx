@@ -6,12 +6,16 @@ function Header() {
     return (
         <div className="header">
             <img src={logo} alt="Logo" className="logo" />
-            <ul>
-                <li>Tab 1</li>
-                <li>Tab 2</li>
-                <li>Tab 3</li>
-                <li>Tab 4</li>
-            </ul>
+            <header>
+                <nav> 
+                    <ul>
+                        <li>Accueil</li>
+                        <li>Profil</li>
+                        <li>Réglages</li>
+                        <li>Communauté</li>
+                    </ul>
+                </nav>
+            </header>
         </div>
     );
 }
