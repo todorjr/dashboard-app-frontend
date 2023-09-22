@@ -2,9 +2,9 @@
 body {
     margin: 0;
     padding: 0;
-  }
-  
-  .header {
+}
+
+.header {
     display: flex;
     background-color: #000;
     color: white;
@@ -21,19 +21,19 @@ body {
     display: flex;
     justify-content: space-between;
     flex-direction: row;
-  }
-  
-  .header li {
+}
+
+.header li {
     margin-right: 20px;
     cursor: pointer;
-  }
+}
 
-  .header .logo {
+.header .logo {
     width: 168px;
     height: auto;
-  }
-  
-  .footer {
+}
+
+.footer {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -44,15 +44,14 @@ body {
     left: 0;
     width: auto;
     height: 100%;
-  }
-  
-  .footer .icon {
+}
+
+.footer .icon {
     padding: 10px;
     text-align: center;
     cursor: pointer;
-  }
-  
-  .footer .icon:hover {
+}
+
+.footer .icon:hover {
     background-color: #444;
-  }
-  
+}
