@@ -10,10 +10,10 @@ body {
     background-color: #000;
     color: white;
     padding: 10px;
-    position: fixed;
     top: 0;
     left: 0;
     right: 0;
+    height: 5vh;
 }
 
 .logo {
@@ -43,11 +43,10 @@ body {
     justify-content: center;
     background-color: #000;
     color: white;
-    position: fixed;
     bottom: 0;
     left: 0;
-    width: auto;
-    height: 92%;
+    width: 5%;
+    height: 95vh;
 }
 
 .footer .icon {
@@ -64,4 +63,9 @@ body {
     margin-top: 100px;
     color: #fff;
     transform: rotate(270deg);
+}
+
+.title {
+    margin-left: 150px;
+    margin-top: 100px;
 }
