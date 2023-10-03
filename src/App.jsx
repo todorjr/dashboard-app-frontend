@@ -11,7 +11,7 @@ function App() {
     <Header />
     <div style={{ display: 'flex', flex: 1 }}>
       <Footer />
-      <Dashboard userId={18} />
+      <Dashboard userId={12} />
     </div>
   </div>
   )

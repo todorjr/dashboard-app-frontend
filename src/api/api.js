@@ -1,7 +1,7 @@
 import data from '../data/data.json';
 import axios from 'axios';
 
-const USE_MOCK_DATA = true;
+const USE_MOCK_DATA = false;
 
 const API_BASE_URL = `http://localhost:3000/user/`;
 
@@ -29,7 +29,7 @@ export async function fetchData(endpoint, userId) {
         }
     } else {
         try {
-            const response = await axios.get(`${API_BASE_URL}${userId}${endpoint}`);
+            const response = await axios.get(`${API_BASE_URL}${userId}`);
             return response.data;
         } catch (error) {
             console.error('Error fetching data from API:', error);
