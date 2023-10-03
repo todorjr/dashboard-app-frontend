@@ -1,0 +1,112 @@
+{
+    "user_data": [
+    { 
+        "id": 12,
+        "userInfos": {
+            "firstName": "Karl",
+            "lastName": "Dovineau",
+            "age": 31
+        },
+        "todayScore": 0.12,
+        "keyData": {
+            "calorieCount": 1930,
+            "proteinCount": 155,
+            "carbohydrateCount": 290,
+            "lipidCount": 50
+        }
+    },
+    {
+        "id": 18,
+        "userInfos": {
+            "firstName": "Cecilia",
+            "lastName": "Ratorez",
+            "age": 34
+        },
+        "score": 0.3,
+        "keyData": {
+            "calorieCount": 2500,
+            "proteinCount": 90,
+            "carbohydrateCount": 150,
+            "lipidCount": 120
+        }
+    }
+    ],
+    "user_activity_data": [
+    {
+        "userId": 12,
+        "sessions": [
+            {
+                "day": "2020-07-01",
+                "kilogram": 80,
+                "calories": 240
+            }
+        ]
+    },
+    {
+        "userId": 18,
+        "sessions": [
+            {
+                "day": "2020-07-01",
+                "kilogram": 70,
+                "calories": 240
+            }
+        ]
+    }
+    ],
+    "user_average_sessions_data": [
+    {
+        "userId": 12,
+        "sessions": [
+            {
+                "day": 1,
+                "sessionLength": 30
+            }
+        ]
+    },
+    {
+        "userId": 18,
+        "sessions": [
+            {
+                "day": 1,
+                "sessionLength": 30
+            }
+        ]
+    }
+    ],
+    "user_performance_data": [
+    {
+        "userId": 12,
+        "kind": {
+            "1": "cardio",
+            "2": "energy",
+            "3": "endurance",
+            "4": "strength",
+            "5": "speed",
+            "6": "intensity"
+        },
+        "data": [
+            {
+                "value": 80,
+                "kind": 1
+            }
+        ]
+    },
+    {
+        "userId": 18,
+        "kind": {
+            "1": "cardio",
+            "2": "energy",
+            "3": "endurance",
+            "4": "strength",
+            "5": "speed",
+            "6": "intensity"
+        },
+        "data": [
+            {
+                "value": 200,
+                "kind": 1
+            }
+        ]
+    }
+    ]
+}
