@@ -1,16 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import StateTrack from './StateTrack';
-import { FaHotjar } from 'react-icons/fa';
-import { FaHamburger } from 'react-icons/fa';
-import { FaAppleAlt } from 'react-icons/fa';
-import { fetchData } from '../api/api';
+import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
+import { BsEggFried } from 'react-icons/bs';
+import { fetchData, API_ENDPOINTS } from '../api/api';
 
 
 function Dashboard({ userId }) {
     const [userData, setUserData] = useState({});
-    const endpoint = '/user_data';
+    const endpoint = API_ENDPOINTS.USER_MAIN_DATA + userId;
+    console.log(endpoint);
 
-    useEffect(() => {
+    useEffect(() => {  //format this code to and separate into file formatter.js 
         fetchData(endpoint, userId)
             .then((data) => {
                 setUserData(data);
@@ -19,8 +19,6 @@ function Dashboard({ userId }) {
                 console.error('Error fetching data:', error);
             });
     }, [userId]);
-
-    console.log(userId);
 
 
     return (
@@ -33,7 +31,6 @@ function Dashboard({ userId }) {
                 <div className="first-section">
                     <div className="activity">
                         <h2>Activité quotidienne</h2>
-                        {/* Add content for the big div */}
                     </div>
                     <div className="column">
                         <div className="row time">
@@ -53,29 +50,34 @@ function Dashboard({ userId }) {
                 <div className="side-section">
                     <div className="column">
                         <StateTrack
-                            bgColor="#f0f0f0"
                             iconColor='#fff'
                             value={userData?.data?.keyData?.calorieCount}
                             label="Calories"
                             icon={<FaHotjar />}
+                            iconClassName="calorie"
+                            iconContainerClassName="icon-calorie"
                         />
                         <StateTrack
-                            bgColor="#f0f0f0"
                             value={userData?.data?.keyData?.proteinCount}
                             label="Proteines"
-                            icon={<FaHamburger />}
+                            icon={<BsEggFried/>}
+                            iconClassName="protein"
+                            iconContainerClassName="icon-protein"
 
                         />
                         <StateTrack
-                            bgColor="#f0f0f0"
                             value={userData?.data?.keyData?.carbohydrateCount}
                             label="Glucides"
                             icon={<FaAppleAlt />}
+                            iconClassName="carbo"
+                            iconContainerClassName="icon-carbo"
                         />
                         <StateTrack
-                            bgColor="#f0f0f0"
                             value={userData?.data?.keyData?.lipidCount}
                             label="Lipides"
+                            icon={<FaHamburger />}
+                            iconClassName="lipid"
+                            iconContainerClassName="icon-lipid"
                         />
                     </div>
                 </div>

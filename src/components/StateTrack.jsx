@@ -1,18 +1,11 @@
 import React from 'react';
 
 
-function StateTrack({ icon, iconColor, bgColor, value, label }) {
-    const trackStyle = {
-        backgroundColor: bgColor || '#3498db',
-    };
-
-    const iconStyle = {
-        backgroundColor: iconColor || 'white',
-    };
+function StateTrack({ icon, iconColor, bgColor, value, label, iconClassName, iconContainerClassName }) {
 
     return (
-        <div className="tracks" style={trackStyle}>
-            <div className="icons" style={iconStyle}>{icon}</div>
+        <div className="tracks" >
+            <div className={`icons ${iconContainerClassName}`}><p className={`icon ${iconClassName}`}>{icon}</p></div>
             <div className="stats">
                 <p>{value}</p>
                 <h2>{label}</h2>

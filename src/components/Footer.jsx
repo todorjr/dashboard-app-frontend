@@ -1,13 +1,18 @@
 import React from 'react';
+import SideIcons from './SideIcons';
+
+import { GrYoga } from 'react-icons/gr'; 
+import { TbSwimming } from 'react-icons/tb';
+import { MdOutlineDirectionsBike } from 'react-icons/md';
+import { GiWeightLiftingUp } from 'react-icons/gi';
 
 function Footer() {
+    const icons = [GrYoga, TbSwimming, MdOutlineDirectionsBike, GiWeightLiftingUp];
+
     return (
         <div className="footer">
-            <div className="icon">Icon 1</div>
-            <div className="icon">Icon 2</div>
-            <div className="icon">Icon 3</div>
-            <div className="icon">Icon 4</div>
-            <small>Copyright ©2023</small> 
+            <SideIcons icons={icons}  />
+            <small>Copyright SportSee ©2023</small> 
         </div>
     );
 }

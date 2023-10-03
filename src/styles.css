@@ -20,9 +20,7 @@ body {
     height: 5vh;
 }
 
-.logo {
-    margin-right: 20px;
-}
+.logo { margin-right: 20px }
 
 .header ul {
     list-style: none;
@@ -49,7 +47,7 @@ body {
     color: white;
     bottom: 0;
     left: 0;
-    width: 5%;
+    width: 6%;
     height: 95vh;
 }
 
@@ -59,14 +57,14 @@ body {
     cursor: pointer;
 }
 
-.footer .icon:hover {
-    background-color: #444;
-}
+.footer .icon:hover { background-color: #444 }
 
 .footer small {
     margin-top: 100px;
     color: #fff;
     transform: rotate(270deg);
+    display: inline;
+    font-size: 8px;
 }
 
 .title { margin: 50px 0 50px 150px }
@@ -145,5 +143,34 @@ body {
 .icons {
     width: 50px;
     height: 50px;
-    background-color: #3498db;
+    border-radius: 5px;
 }
+.icon-calorie { background-color:  rgb(239 177 177)}
+.icon-protein { background-color:  rgb(177 177 239)}
+.icon-carbo { background-color:  rgb(220 220 144);}
+.icon-lipid { background-color:  rgb(253 216 211)}
+
+.calorie { color: red }
+.protein { color: blue }
+.carbo { color: yellow }
+.lipid { color: salmon }
+
+.tracks { background-color: #f0f0f0 }
+
+.icon-column {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .icon-container {
+    width: 64px;
+    height: 64px;
+    border-radius: 6px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    background-color: #fff;
+  }
+  .icon-container svg { color: red }
+
