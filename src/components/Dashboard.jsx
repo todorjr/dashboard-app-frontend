@@ -1,24 +1,25 @@
 import React, { useEffect, useState } from 'react';
+import axios from 'axios';
 import StateTrack from './StateTrack';
 import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
 import { BsEggFried } from 'react-icons/bs';
-import { fetchData, API_ENDPOINTS } from '../api/api';
+import { fetchData, API_ENDPOINTS, API_BASE_URL } from '../api/api';
 
 
 function Dashboard({ userId }) {
     const [userData, setUserData] = useState({});
-    const endpoint = API_ENDPOINTS.USER_MAIN_DATA + userId;
-    console.log(endpoint);
+    const apiUrl = `http://localhost:3000/user/${userId}`;
 
-    useEffect(() => {  //format this code to and separate into file formatter.js 
-        fetchData(endpoint, userId)
-            .then((data) => {
-                setUserData(data);
+
+    useEffect(() => {
+        axios.get(apiUrl)
+            .then((response) => {
+                setUserData(response.data);
             })
             .catch((error) => {
                 console.error('Error fetching data:', error);
             });
-    }, [userId]);
+        }, [userId]);
 
 
     return (
