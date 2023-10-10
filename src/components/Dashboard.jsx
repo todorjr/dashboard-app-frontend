@@ -4,36 +4,27 @@ import StateTrack from './StateTrack';
 import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
 import { BsEggFried } from 'react-icons/bs';
 import { fetchData, API_ENDPOINTS, API_BASE_URL } from '../api/api';
-
+import getActivityData from '../services/services.js';
+import ActivityChart from './charts/ActivityChart';
 
 function Dashboard({ userId }) {
     const [userData, setUserData] = useState({});
-    const [sessions, setUserSession] = useState({});
-
-    const apiUrl = `http://localhost:3000/user/${userId}`;
-    const endpoint = API_ENDPOINTS.USER_ACTIVITY;
+    const [activity, setUserActivity] = useState({ data: [], loading: false });
 
     useEffect(() => {
-        fetchData(endpoint, userId)
-            .then((data) => {
-                setUserSession(data);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            });
+        async function userActivityData() {
+            const result = await getActivityData(userId)
+            setUserActivity({ ...activity, data: result, loading: true })
+        }
+        setTimeout(()=>{
+            userActivityData()
+        }, 2000)
     }, [userId]);
 
-    useEffect(() => {
-        axios.get(apiUrl)
-            .then((response) => {
-                setUserData(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            });
-        }, [userId]);
 
-        console.log(sessions,'sessions');
+    console.log(activity.data, 'activity');
+    console.log(activity.loading,'loading');
+
 
     return (
         <div style={{ flex: 1, padding: '20px' }}>
@@ -45,6 +36,7 @@ function Dashboard({ userId }) {
                 <div className="first-section">
                     <div className="activity">
                         <h2>Activité quotidienne</h2>
+                        <ActivityChart data={ activity.data } loading={ activity.loading } />
                     </div>
                     <div className="column">
                         <div className="row time">
@@ -75,7 +67,7 @@ function Dashboard({ userId }) {
                         <StateTrack
                             value={userData?.data?.keyData?.proteinCount}
                             label="Proteines"
-                            icon={<BsEggFried/>}
+                            icon={<BsEggFried />}
                             iconClassName="protein"
                             iconContainerClassName="icon-protein"
 
