@@ -8,8 +8,20 @@ import { fetchData, API_ENDPOINTS, API_BASE_URL } from '../api/api';
 
 function Dashboard({ userId }) {
     const [userData, setUserData] = useState({});
-    const apiUrl = `http://localhost:3000/user/${userId}`;
+    const [sessions, setUserSession] = useState({});
 
+    const apiUrl = `http://localhost:3000/user/${userId}`;
+    const endpoint = API_ENDPOINTS.USER_ACTIVITY;
+
+    useEffect(() => {
+        fetchData(endpoint, userId)
+            .then((data) => {
+                setUserSession(data);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+    }, [userId]);
 
     useEffect(() => {
         axios.get(apiUrl)
@@ -21,6 +33,7 @@ function Dashboard({ userId }) {
             });
         }, [userId]);
 
+        console.log(sessions,'sessions');
 
     return (
         <div style={{ flex: 1, padding: '20px' }}>
@@ -47,6 +60,7 @@ function Dashboard({ userId }) {
                         </div>
                     </div>
                 </div>
+
 
                 <div className="side-section">
                     <div className="column">

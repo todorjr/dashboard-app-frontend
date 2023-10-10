@@ -1,7 +1,7 @@
 import data from '../data/data.json'; 
 import axios from 'axios';
 
-const USE_MOCK_DATA = true; 
+const USE_MOCK_DATA = false; 
 
 export const API_BASE_URL = `http://localhost:3000/user/`;
 
@@ -12,10 +12,9 @@ export const API_ENDPOINTS = {
 };
 
 export async function fetchData(endpoint, userId) {
+
     if (USE_MOCK_DATA) {
-        switch (endpoint) {
-            case API_ENDPOINTS.USER_MAIN_DATA:
-                return { data: data.user_data };
+        switch (endpoint,'sdsd') {
             case API_ENDPOINTS.USER_ACTIVITY:
                 return { data: data.user_activity_data };
             case API_ENDPOINTS.USER_AVERAGE_SESSIONS:
@@ -27,7 +26,8 @@ export async function fetchData(endpoint, userId) {
         }
     } else {
         try {
-            const response = await axios.get(`${API_BASE_URL}${userId}${API_ENDPOINTS[endpoint]}`);
+            const apiUrl = `${API_BASE_URL}${userId}/${endpoint}`;
+            const response = await axios.get(apiUrl);
             return response.data;
         } catch (error) {
             console.error('Error fetching data from API:', error);
