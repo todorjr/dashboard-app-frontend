@@ -16,15 +16,17 @@ function CustomTooltip({ payload, label, active }) {
 const days = ['L','M','M','J','V','S','D']
 function CustomTick(props) {
     const { x, y, payload } = props;
+    const index = parseInt(payload.value, 10) - 1; //payload.value is not a number
+
     return (
-      <g transform={`translate(${x},${y})`}>
-        <text x={0} y={0} dy={16} textAnchor="middle" fill="#666">
-          {days[payload.value]}
-        </text>
-      </g>
-    );
-  }
-  
+        <g transform={`translate(${x},${y})`}>
+            <text x={0} y={0} dy={16} textAnchor="center" fill="#fff">
+            {days[index]}
+            </text>
+        </g>
+        );
+    }
+    
 
 function SessionChart({ data, loading }) {
     console.log(data,'session data');
@@ -33,14 +35,14 @@ function SessionChart({ data, loading }) {
         return <p>Please be patient. Your data is currently loading.</p>;
     } else {
         return (
-            <ResponsiveContainer  height="70%">
+            <ResponsiveContainer width={250} height="70%">
                 <LineChart
                     width={100}
                     height={150}
                     data={data}
                     margin={{
                         top: 20,
-                        right: 10,
+                        right: 12,
                         left: 10,
                         bottom: 5,
                     }}

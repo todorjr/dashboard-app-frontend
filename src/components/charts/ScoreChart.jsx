@@ -24,16 +24,15 @@ function ScoreChart({ data }) {
                     endAngle={-270}
                 >
                     {
-                        // To add colors dynamically
                         data.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={entry.fill || "#000000"} />
                         ))
                     }
                     <Label 
-                    className="chart-label"
-                        value={`${totalPercentage}%`} 
+                        className="chart-label"
+                        value={`${totalPercentage}% de votre objectif`} 
                         position="center" 
-                        style={{ fontSize: '20px', fill: '#000' }}
+                        style={{ fontSize: '10px', fill: '#000' }}
                     />
                 </Pie>
             </PieChart>

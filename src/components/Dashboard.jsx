@@ -48,6 +48,7 @@ function Dashboard({ userId }) {
     const scoreValue = userData?.data?.todayScore ?? userData?.data?.score;
     const scoreData = [{
         score: scoreValue,
+        fill: 'red'
     }];
     
     return (

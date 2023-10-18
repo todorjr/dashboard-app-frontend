@@ -2,7 +2,6 @@ import { fetchData, fetchUserData } from "../api/api";
 
 export async function getUserData (userId) {
     const result = await fetchUserData (userId)
-    console.log(result,'fetch user data');
     return result.data
 }
 
