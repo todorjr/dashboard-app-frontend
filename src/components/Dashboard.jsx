@@ -3,7 +3,7 @@ import axios from 'axios';
 import StateTrack from './StateTrack';
 import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
 import { BsEggFried } from 'react-icons/bs';
-import { getActivityData, getSessionData, getIntensityData } from '../services/services.js';
+import { getUserData, getActivityData, getSessionData, getIntensityData } from '../services/services.js';
 
 
 import ActivityChart from './charts/ActivityChart';
@@ -12,25 +12,16 @@ import IntensityChart from './charts/IntensityChart'
 import ScoreChart from './charts/ScoreChart';
 
 function Dashboard({ userId }) {
-    const [userData, setUserData] = useState({});
+    const [userData, setUserData] = useState({ data:[] });
     const [activity, setUserActivity] = useState({ data: [], loading: false });
     const [session, setUserSession] = useState({ data: [], loading: false });
     const [performance, setUserPerformance] = useState({ data:[], loading: false});
 
-    const apiUrl = `http://localhost:3000/user/${userId}`;
-
-
     useEffect(() => {
-        axios.get(apiUrl)
-            .then((response) => {
-                setUserData(response.data);
-            })
-            .catch((error) => {
-                console.error('Error fetching data:', error);
-            });
-        }, [userId]);
-
-    useEffect(() => {
+        async function basicUserData () {
+            const result = await getUserData(userId)
+            setUserData({...userData, data: result })
+        }
         async function userActivityData() {
             const result = await getActivityData(userId)
             setUserActivity({ ...activity, data: result, loading: true })
@@ -44,6 +35,8 @@ function Dashboard({ userId }) {
             setUserPerformance({...performance, data: result, loading: true})
 
         }
+
+        basicUserData()
         setTimeout(()=>{
             userActivityData()
             userSessionData()
@@ -51,15 +44,16 @@ function Dashboard({ userId }) {
         }, 2000)
     }, [userId]);
 
+    const userName = userData?.data?.userInfos?.firstName
+    const scoreValue = userData?.data?.todayScore ?? userData?.data?.score;
     const scoreData = [{
-        score: userData?.data?.todayScore ? userData?.data?.todayScore : userData?.data?.score ,
-        fill: 'red'
+        score: scoreValue,
     }];
-
+    
     return (
         <div style={{ flex: 1, padding: '20px' }}>
             <div className="title">
-                <h1>Bonjour {userData?.data?.userInfos?.firstName}</h1>
+                <h1>Bonjour {userName}</h1>
                 <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             </div>
             <div className="container">

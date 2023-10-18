@@ -35,5 +35,27 @@ export async function fetchData(endpoint, userId) {
         }
     }
 }
+export async function fetchUserData(userId) {
+
+    if (USE_MOCK_DATA) {
+        const userData = user_data.find(user => user.id === userId);
+        console.log(userData);
+        
+        if (!userData) {
+            throw new Error(`No mock data found for user ID: ${userId}`);
+        }
+
+        return userData;
+    } else {
+        try {
+            const apiUrl = `${API_BASE_URL}${userId}`;
+            const response = await axios.get(apiUrl);
+            return response.data;
+        } catch (error) {
+            console.error('Error fetching data from API:', error);
+            throw error;
+        }
+    }
+}
 
 

@@ -1,4 +1,10 @@
-import { fetchData } from "../api/api";
+import { fetchData, fetchUserData } from "../api/api";
+
+export async function getUserData (userId) {
+    const result = await fetchUserData (userId)
+    console.log(result,'fetch user data');
+    return result.data
+}
 
 export async function getActivityData (userId) {
     const result = await fetchData('activity', userId)
