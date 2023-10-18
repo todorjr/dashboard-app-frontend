@@ -3,9 +3,9 @@ import React from 'react';
 function SideIcons({ icons }) {
     return (
         <div className="icon-column">
-            {icons.map((IconComponent, index) => (
+            {icons.map((Icon, index) => (
                 <div className="icon-container" key={index}>
-                    <IconComponent size={30} />
+                    <Icon size={30} />
                 </div>
             ))}
         </div>
