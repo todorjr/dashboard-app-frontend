@@ -2,8 +2,22 @@
 import React from 'react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer } from 'recharts';
 
+
+function CustomTooltip({ payload, label, active }) {
+    if (active) {
+        return (
+            <div className="custom-tooltip" style={{ backgroundColor: '#fff', padding: '2px' }}>
+                <p className="intro" style={{ color: '#000' }}>{payload[0].value}min</p>
+            </div>
+        );
+    }
+
+    return null;
+}
+
 function SessionChart({ data, loading }) {
-    console.log(data, 'session dataaaaaaa');
+    console.log(data,'session data');
+
     if (!loading) {
         return <p>Please be patient. Your data is currently loading.</p>;
     } else {
@@ -22,7 +36,7 @@ function SessionChart({ data, loading }) {
                 >
                     <XAxis dataKey="day" />
                     <YAxis domain={['dataMin', 'dataMax']} />
-                    <Tooltip />
+                    <Tooltip content={<CustomTooltip />}/>
                     <CartesianGrid stroke="#eee" vertical={false} />
                     <Line type="monotone" dataKey="sessionLength" stroke="#FFF" fill="#FFF" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
                 </LineChart>

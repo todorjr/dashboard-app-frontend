@@ -3,17 +3,32 @@ import axios from 'axios';
 import StateTrack from './StateTrack';
 import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
 import { BsEggFried } from 'react-icons/bs';
-import { getActivityData, getSessionData } from '../services/services.js';
+import { getActivityData, getSessionData, getIntensityData } from '../services/services.js';
 
 
 import ActivityChart from './charts/ActivityChart';
 import SessionChart from './charts/SessionChart';
+import IntensityChart from './charts/IntensityChart'
+import ScoreChart from './charts/ScoreChart';
 
 function Dashboard({ userId }) {
     const [userData, setUserData] = useState({});
     const [activity, setUserActivity] = useState({ data: [], loading: false });
     const [session, setUserSession] = useState({ data: [], loading: false });
+    const [performance, setUserPerformance] = useState({ data:[], loading: false});
 
+    const apiUrl = `http://localhost:3000/user/${userId}`;
+
+
+    useEffect(() => {
+        axios.get(apiUrl)
+            .then((response) => {
+                setUserData(response.data);
+            })
+            .catch((error) => {
+                console.error('Error fetching data:', error);
+            });
+        }, [userId]);
 
     useEffect(() => {
         async function userActivityData() {
@@ -22,14 +37,24 @@ function Dashboard({ userId }) {
         }
         async function userSessionData() {
             const result = await getSessionData(userId)
-            setUserSession({ ...activity, data: result, loading: true })
+            setUserSession({ ...session, data: result, loading: true })
+        }
+        async function userPerfomanceData() {
+            const result = await getIntensityData(userId)
+            setUserPerformance({...performance, data: result, loading: true})
+
         }
         setTimeout(()=>{
             userActivityData()
             userSessionData()
+            userPerfomanceData()
         }, 2000)
     }, [userId]);
 
+    const scoreData = [{
+        score: userData?.data?.todayScore ? userData?.data?.todayScore : userData?.data?.score ,
+        fill: 'red'
+    }];
 
     return (
         <div style={{ flex: 1, padding: '20px' }}>
@@ -52,9 +77,11 @@ function Dashboard({ userId }) {
                             </div>
                             <div className="square intense">
                                 <h2>Intensité</h2>
+                                <IntensityChart data={ performance.data } loading={performance.loading } />
                             </div>
                             <div className="square score">
                                 <h2>Score</h2>
+                                <ScoreChart data={scoreData} />
                             </div>
                         </div>
                     </div>

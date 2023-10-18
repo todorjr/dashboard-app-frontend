@@ -14,7 +14,7 @@ export const API_ENDPOINTS = {
 export async function fetchData(endpoint, userId) {
 
     if (USE_MOCK_DATA) {
-        switch (endpoint,'sdsd') {
+        switch (endpoint) {
             case API_ENDPOINTS.USER_ACTIVITY:
                 return { data: data.user_activity_data };
             case API_ENDPOINTS.USER_AVERAGE_SESSIONS:
