@@ -3,27 +3,32 @@ import axios from 'axios';
 import StateTrack from './StateTrack';
 import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
 import { BsEggFried } from 'react-icons/bs';
-import { fetchData, API_ENDPOINTS, API_BASE_URL } from '../api/api';
-import getActivityData from '../services/services.js';
+import { getActivityData, getSessionData } from '../services/services.js';
+
+
 import ActivityChart from './charts/ActivityChart';
+import SessionChart from './charts/SessionChart';
 
 function Dashboard({ userId }) {
     const [userData, setUserData] = useState({});
     const [activity, setUserActivity] = useState({ data: [], loading: false });
+    const [session, setUserSession] = useState({ data: [], loading: false });
+
 
     useEffect(() => {
         async function userActivityData() {
             const result = await getActivityData(userId)
             setUserActivity({ ...activity, data: result, loading: true })
         }
+        async function userSessionData() {
+            const result = await getSessionData(userId)
+            setUserSession({ ...activity, data: result, loading: true })
+        }
         setTimeout(()=>{
             userActivityData()
+            userSessionData()
         }, 2000)
     }, [userId]);
-
-
-    console.log(activity.data, 'activity');
-    console.log(activity.loading,'loading');
 
 
     return (
@@ -42,6 +47,8 @@ function Dashboard({ userId }) {
                         <div className="row time">
                             <div className="square session">
                                 <h2>Durée moyenne des sessions</h2>
+                                <SessionChart data={ session.data } loading={ session.loading } />
+
                             </div>
                             <div className="square intense">
                                 <h2>Intensité</h2>
