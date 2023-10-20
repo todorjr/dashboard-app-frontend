@@ -1,12 +1,12 @@
 import React from 'react';
 import SideIcons from './SideIcons';
-import { GrYoga } from 'react-icons/gr'; 
+import { TbYoga } from 'react-icons/tb'; 
 import { TbSwimming } from 'react-icons/tb';
 import { MdOutlineDirectionsBike } from 'react-icons/md';
 import { GiWeightLiftingUp } from 'react-icons/gi';
 
 function Footer() {
-    const icons = [GrYoga, TbSwimming, MdOutlineDirectionsBike, GiWeightLiftingUp];
+    const icons = [TbYoga, TbSwimming, MdOutlineDirectionsBike, GiWeightLiftingUp];
     return (
         <div className="footer">
             <SideIcons icons={icons}  />

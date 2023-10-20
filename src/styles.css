@@ -18,7 +18,7 @@ body {
     top: 0;
     left: 0;
     right: 0;
-    height: 10vh;
+    height: 7vh;
     gap: 30px;
 }
 
@@ -45,13 +45,13 @@ body {
 .footer {
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     background-color: #000;
     color: white;
     bottom: 0;
     left: 0;
     width: 6%;
-    height: 95vh;
+    height: 100%;
 }
 
 .footer .icon {
@@ -64,13 +64,19 @@ body {
     background-color: #444
 }
 
+
 .footer small {
-    margin-top: 100px;
     color: #fff;
     transform: rotate(270deg);
-    display: inline;
-    font-size: 8px;
+    transform-origin: center;
+    font-size: 15px;
+    white-space: nowrap;
+    width: auto;
+    max-width: none;
+    overflow: visible;
 }
+
+
 
 .title {
     margin: 50px 0 50px 150px
@@ -240,9 +246,6 @@ body {
     background-color: #fff;
 }
 
-.icon-container svg {
-    color: red
-}
 .custom-legend-title {
         margin-bottom: 10px;
         color: #000;

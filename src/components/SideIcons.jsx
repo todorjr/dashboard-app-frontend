@@ -5,7 +5,7 @@ function SideIcons({ icons }) {
         <div className="icon-column">
             {icons.map((Icon, index) => (
                 <div className="icon-container" key={index}>
-                    <Icon size={30} />
+                    <Icon size={30} color="red" />
                 </div>
             ))}
         </div>
