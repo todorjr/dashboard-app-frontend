@@ -1,7 +1,7 @@
 import React from "react";
 import { PieChart, Pie, Cell, Label } from 'recharts';
 
-function ScoreChart({ data }) {
+function ScoreChart({ data, loading }) {
     const formattedData = data.map(item => ({
         ...item,
         score: item.score * 100  // convert decimal values to percentages
@@ -12,7 +12,7 @@ function ScoreChart({ data }) {
         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '70%', paddingRight: '5px' }}>
             <PieChart width={200} height={200}>
                 <Pie
-                    data={data}
+                    data={formattedData}  // Use formattedData instead of data
                     dataKey="score"
                     nameKey="name"
                     cx="50%"
@@ -24,7 +24,7 @@ function ScoreChart({ data }) {
                     endAngle={-270}
                 >
                     {
-                        data.map((entry, index) => (
+                        formattedData.map((entry, index) => (
                             <Cell key={`cell-${index}`} fill={entry.fill || "#000000"} />
                         ))
                     }
@@ -32,13 +32,14 @@ function ScoreChart({ data }) {
                         className="chart-label"
                         value={`${totalPercentage}% de votre objectif`} 
                         position="center" 
-                        style={{ fontSize: '10px', fill: '#000' }}
+                        style={{ fontSize: '14px', fill: '#000' }}
                     />
                 </Pie>
             </PieChart>
         </div>
-    );
+    )
 }
 
 export default ScoreChart;
+
 

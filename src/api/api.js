@@ -39,7 +39,6 @@ export async function fetchUserData(userId) {
 
     if (USE_MOCK_DATA) {
         const userData = user_data.find(user => user.id === userId);
-        console.log(userData);
         
         if (!userData) {
             throw new Error(`No mock data found for user ID: ${userId}`);

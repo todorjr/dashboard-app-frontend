@@ -10,26 +10,25 @@ function IntensityChart({ data, loading }) {
         return <p>Please be patient. Your data is currently loading.</p>;
     } else {
         return (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%'}}>
             <RadarChart
-                cx={120}
-                cy={75}
-                outerRadius={70}
-                width={240}
+                className="radar-chart"
+                cx={150}
+                cy={150}
+                outerRadius={72}
+                width={300}
                 height={300}
                 data={performanceData}
-                margin={{
-                    top: 5,
-                    right: 5,
-                    bottom: 5,
-                    left: 15 
-                }}
             >
                 <PolarGrid gridType="polygon" radialLines={false} />
-                <PolarAngleAxis dataKey="kind" tickFormatter={(value) => kindMapping[value]} tick={{ fill: "white", fontSize: 10 }} />
+                <PolarAngleAxis
+                    dataKey="kind"
+                    tickFormatter={(value) => kindMapping[value].charAt(0).toUpperCase() + kindMapping[value].slice(1).toLowerCase()}
+                    tick={{ fill: "white", fontSize: 12 }}
+                />
                 <Radar name="Intensity" dataKey="value" fill="#FF0000" fillOpacity={0.6} />
             </RadarChart>
-            </div>
+        </div>
         );
     }
 }

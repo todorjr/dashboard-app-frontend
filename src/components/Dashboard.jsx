@@ -43,38 +43,37 @@ function Dashboard({ userId }) {
         }, 2000)
     }, [userId]);
 
+
     const userName = userData?.data?.userInfos?.firstName
     const scoreValue = userData?.data?.todayScore ?? userData?.data?.score;
     const scoreData = [{
         score: scoreValue,
-        fill: 'red'
     }];
     
     return (
         <div style={{ flex: 1, padding: '20px' }}>
             <div className="title">
-                <h1>Bonjour {userName}</h1>
+                <h1 className='dashboard-title'>Bonjour <span className='user-name'>{userName}</span></h1>
                 <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
             </div>
             <div className="container">
                 <div className="first-section">
                     <div className="activity">
-                        <h2>Activité quotidienne</h2>
+                        <h2 style={{marginLeft: '10px', fontWeight: '400', fontSize: '16px'}}>Activité quotidienne</h2>
                         <ActivityChart data={ activity.data } loading={ activity.loading } />
                     </div>
                     <div className="column">
                         <div className="row time">
                             <div className="square session">
-                                <h2>Durée moyenne des sessions</h2>
+                                <h2 style={{marginLeft: '10px', fontWeight: '400', fontSize: '16px'}}>Durée moyenne des sessions</h2>
                                 <SessionChart data={ session.data } loading={ session.loading } />
 
                             </div>
                             <div className="square intense">
-                                <h2>Intensité</h2>
                                 <IntensityChart data={ performance.data } loading={performance.loading } />
                             </div>
                             <div className="square score">
-                                <h2>Score</h2>
+                                <h2 style={{color: '#000', fontWeight: '400', fontSize: '16px'}}>Score</h2>
                                 <ScoreChart data={scoreData} />
                             </div>
                         </div>
