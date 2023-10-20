@@ -4,6 +4,11 @@ import { BarChart, Bar, XAxis, YAxis, Legend, CartesianGrid, Tooltip, Responsive
 
 function ActivityChart({ data, loading }) {
 
+    const transformedData = data.map((item, index) => ({
+        ...item,
+        dayNumber: index + 1,
+    }));
+
     function CustomTooltip({ payload, active }) {
         if (active && payload && payload.length) {
             return (
@@ -54,7 +59,7 @@ function ActivityChart({ data, loading }) {
             <div>
                 <ResponsiveContainer width="100%" height={250}>
                     <BarChart
-                        data={data}
+                        data={transformedData}
                         margin={{
                             top: 15,
                             left: 5,
@@ -62,8 +67,10 @@ function ActivityChart({ data, loading }) {
                         }}
                     >
                         <CartesianGrid strokeDasharray="3 3" vertical={false} />
-                        <XAxis dataKey="day" />
-                        <YAxis orientation='right'/>
+                        <XAxis dataKey="dayNumber" tickLine={false} axisLine={false}/>
+                        <YAxis orientation='right' dataKey="kilogram" yAxisId="kg" tickLine={false} axisLine={false}  />
+                        <YAxis orientation='left' dataKey="calories" yAxisId="kcal" hide/>
+
                         <Tooltip  content= {<CustomTooltip />} itemStyle={{ color: '#fff' }} contentStyle={{ backgroundColor: '#fff' }}/>
                         <Legend
                             content={<CustomLegend />}
@@ -73,8 +80,8 @@ function ActivityChart({ data, loading }) {
                             iconType="circle"
                             wrapperStyle={{position: 'absolute', top: '-45px'}}
                             />
-                        <Bar dataKey="kilogram" fill="#FF0000" barSize={10} />
-                        <Bar dataKey="calories" fill="#000000" barSize={10} />
+                        <Bar dataKey="calories" fill="#000000" barSize={10} yAxisId="kcal" />
+                        <Bar dataKey="kilogram" fill="#FF0000" barSize={10} yAxisId="kg" />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

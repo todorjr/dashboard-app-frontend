@@ -38,12 +38,11 @@ export async function fetchData(endpoint, userId) {
 export async function fetchUserData(userId) {
 
     if (USE_MOCK_DATA) {
-        const userData = user_data.find(user => user.id === userId);
+        const userData = data.user_data.find(user => user.id === Number(userId));
         
         if (!userData) {
             throw new Error(`No mock data found for user ID: ${userId}`);
         }
-
         return userData;
     } else {
         try {
