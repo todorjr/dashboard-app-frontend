@@ -15,7 +15,7 @@ function ScoreChart({ data, loading }) {
 
     if (!loading) {
         return (
-            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100px', }}>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '160px', }}>
                 <p style={{ marginLeft: '15px', color: 'red' }}>Please be patient. Your data is currently loading.</p>
             </div>
         )

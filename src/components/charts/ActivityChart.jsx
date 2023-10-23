@@ -80,8 +80,8 @@ function ActivityChart({ data, loading }) {
                             iconType="circle"
                             wrapperStyle={{position: 'absolute', top: '-45px'}}
                             />
-                        <Bar dataKey="calories" fill="#000000" barSize={10} yAxisId="kcal" />
-                        <Bar dataKey="kilogram" fill="#FF0000" barSize={10} yAxisId="kg" />
+                        <Bar dataKey="calories" fill="#000000" barSize={10} yAxisId="kcal" radius={[20, 20, 0, 0]} />
+                        <Bar dataKey="kilogram" fill="#FF0000" barSize={10} yAxisId="kg" radius={[20, 20, 0, 0]} />
                     </BarChart>
                 </ResponsiveContainer>
             </div>

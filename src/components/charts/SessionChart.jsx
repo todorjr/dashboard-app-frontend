@@ -29,7 +29,11 @@ function CustomTick(props) {
 
 function SessionChart({ data, loading }) {
     if (!loading) {
-        return <p>Please be patient. Your data is currently loading.</p>;
+        return (
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80px', }}>
+                    <p style={{ marginLeft: '10px' }}>Please be patient. Your data is currently loading.</p>
+                </div>
+        )
     } else {
         return (
                 <ResponsiveContainer width={250} height="65%">

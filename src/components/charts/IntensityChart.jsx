@@ -7,7 +7,12 @@ function IntensityChart({ data, loading }) {
     const kindMapping = data.kind;
 
     if (!loading) {
-        return <p>Please be patient. Your data is currently loading.</p>;
+
+        return (
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '250px', }}>
+                <p>Please be patient. Your data is currently loading.</p>
+            </div>
+        )
     } else {
         return (
             <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '100%', width: '100%'}}>

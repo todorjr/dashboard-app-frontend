@@ -67,7 +67,7 @@ function Dashboard({ userId }) {
                     <div className="column">
                         <div className="row time">
                             <div className="square session">
-                                <h2 style={{marginLeft: '10px', marginTop: '25px', fontWeight: '400', fontSize: '16px', width: '50%', textAlign: 'left', opacity: '0.5', lineHeight: '1.5' }}>Durée moyenne des sessions</h2>
+                                <h2 className="text-delay" style={{marginLeft: '10px', marginTop: '25px', fontWeight: '400', fontSize: '16px', width: '50%', textAlign: 'left', lineHeight: '1.5' }}>Durée moyenne des sessions</h2>
                                 <SessionChart data={ session.data } loading={ session.loading } />
 
                             </div>
@@ -75,7 +75,7 @@ function Dashboard({ userId }) {
                                 <IntensityChart data={ performance.data } loading={performance.loading } />
                             </div>
                             <div className="square score">
-                                <h2 style={{color: '#000', fontWeight: '400', fontSize: '16px'}}>Score</h2>
+                                <h2 className="title-delay" style={{color: '#000', fontWeight: '400', fontSize: '16px'}}>Score</h2>
                                 <ScoreChart data={scoreData} loading={userData.loading} />
                             </div>
                         </div>
