@@ -32,28 +32,28 @@ function SessionChart({ data, loading }) {
         return <p>Please be patient. Your data is currently loading.</p>;
     } else {
         return (
-            <ResponsiveContainer width={250} height="70%">
-                <LineChart
-                    width={100}
-                    height={150}
-                    data={data}
-                    margin={{
-                        top: 40,
-                        right: 12,
-                        left: 10,
-                        bottom: 5,
-                    }}
-                >
-                    <XAxis
-                        dataKey="day"
-                        tick={<CustomTick />}
-                        axisLine={false} 
-                        tickLine={false} 
-                    />
-                    <Tooltip content={<CustomTooltip />} />
-                    <Line type="monotone" dataKey="sessionLength" stroke="#FFF" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
-                </LineChart>
-            </ResponsiveContainer>
+                <ResponsiveContainer width={250} height="80%">
+                    <LineChart
+                        width={100}
+                        height={150}
+                        data={data}
+                        margin={{
+                            top: 40,
+                            right: 12,
+                            left: 10,
+                            bottom: 5,
+                        }}
+                    >
+                        <XAxis
+                            dataKey="day"
+                            tick={<CustomTick />}
+                            axisLine={false} 
+                            tickLine={false} 
+                        />
+                        <Tooltip content={<CustomTooltip />} />
+                        <Line type="monotone" dataKey="sessionLength" stroke="#FFF" strokeWidth={2} dot={false} activeDot={{ r: 8 }} />
+                    </LineChart>
+                </ResponsiveContainer>
         );
     }
 }

@@ -249,7 +249,14 @@ body {
 .custom-legend-title {
         margin-bottom: 10px;
         color: #000;
-    }
+}
+
+.line_chart_legend {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
 
 
 @keyframes spin {

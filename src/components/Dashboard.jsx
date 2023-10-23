@@ -11,7 +11,7 @@ import IntensityChart from './charts/IntensityChart'
 import ScoreChart from './charts/ScoreChart';
 
 function Dashboard({ userId }) {
-    const [userData, setUserData] = useState({ data:[] });
+    const [userData, setUserData] = useState({ data:[], loading: false });
     const [activity, setUserActivity] = useState({ data: [], loading: false });
     const [session, setUserSession] = useState({ data: [], loading: false });
     const [performance, setUserPerformance] = useState({ data:[], loading: false});
@@ -19,7 +19,7 @@ function Dashboard({ userId }) {
     useEffect(() => {
         async function basicUserData () {
             const result = await getUserData(userId)
-            setUserData({...userData, data: result })
+            setUserData({...userData, data: result, loading: true})
         }
         async function userActivityData() {
             const result = await getActivityData(userId)
@@ -35,8 +35,8 @@ function Dashboard({ userId }) {
 
         }
 
-        basicUserData()
         setTimeout(()=>{
+            basicUserData()
             userActivityData()
             userSessionData()
             userPerfomanceData()
@@ -46,8 +46,10 @@ function Dashboard({ userId }) {
 
     const userName = userData?.data?.userInfos?.firstName
     const scoreValue = userData?.data?.todayScore ?? userData?.data?.score;
+    console.log(userData);
     const scoreData = [{
         score: scoreValue,
+        fill: 'red',
     }];
     
     return (
@@ -74,7 +76,7 @@ function Dashboard({ userId }) {
                             </div>
                             <div className="square score">
                                 <h2 style={{color: '#000', fontWeight: '400', fontSize: '16px'}}>Score</h2>
-                                <ScoreChart data={scoreData} />
+                                <ScoreChart data={scoreData} loading={userData.loading} />
                             </div>
                         </div>
                     </div>
