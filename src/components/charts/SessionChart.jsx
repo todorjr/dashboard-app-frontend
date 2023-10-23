@@ -32,7 +32,7 @@ function SessionChart({ data, loading }) {
         return <p>Please be patient. Your data is currently loading.</p>;
     } else {
         return (
-                <ResponsiveContainer width={250} height="80%">
+                <ResponsiveContainer width={250} height="65%">
                     <LineChart
                         width={100}
                         height={150}
