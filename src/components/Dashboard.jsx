@@ -19,18 +19,22 @@ function Dashboard({ userId }) {
     useEffect(() => {
         async function basicUserData () {
             const result = await getUserData(userId)
+            console.log(result, 'User Data');
             setUserData({...userData, data: result, loading: true})
         }
         async function userActivityData() {
             const result = await getActivityData(userId)
+            console.log(result, 'Activity Data');
             setUserActivity({ ...activity, data: result, loading: true })
         }
         async function userSessionData() {
             const result = await getSessionData(userId)
+            console.log(result, 'Session Data');
             setUserSession({ ...session, data: result, loading: true })
         }
         async function userPerfomanceData() {
             const result = await getIntensityData(userId)
+            console.log(result, 'Perfomance Data');
             setUserPerformance({...performance, data: result, loading: true})
 
         }
@@ -46,7 +50,6 @@ function Dashboard({ userId }) {
 
     const userName = userData?.data?.userInfos?.firstName
     const scoreValue = userData?.data?.todayScore ?? userData?.data?.score;
-    console.log(userData);
     const scoreData = [{
         score: scoreValue,
         fill: 'red',
