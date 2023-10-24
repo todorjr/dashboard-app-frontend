@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid, ResponsiveContainer, Legend } from 'recharts';
+import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 function CustomTooltip({ payload, label, active }) {
     if (active) {
