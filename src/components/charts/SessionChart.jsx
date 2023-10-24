@@ -3,6 +3,7 @@ import React from 'react';
 import { LineChart, Line, XAxis, Tooltip, ResponsiveContainer } from 'recharts';
 
 function CustomTooltip({ payload, label, active }) {
+    console.log(payload);
     if (active) {
         return (
             <div className="custom-tooltip" style={{ backgroundColor: '#fff', padding: '2px' }}>
