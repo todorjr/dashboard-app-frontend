@@ -1,7 +1,7 @@
 import data from '../data/data.json'; 
 import axios from 'axios';
 
-const USE_MOCK_DATA = false; 
+const USE_MOCK_DATA = true; 
 
 export const API_BASE_URL = `http://localhost:3000/user/`;
 
@@ -16,11 +16,11 @@ export async function fetchData(endpoint, userId) {
     if (USE_MOCK_DATA) {
         switch (endpoint) {
             case API_ENDPOINTS.USER_ACTIVITY:
-                return { data: data.user_activity_data };
+                return { data: {sessions: data.user_activity_data }};
             case API_ENDPOINTS.USER_AVERAGE_SESSIONS:
-                return { data: data.user_average_sessions_data };
+                return  {data: {sessions: data.user_average_sessions_data }};
             case API_ENDPOINTS.USER_PERFORMANCE:
-                return { data: data.user_performance_data };
+                return { data: data.user_performance_data} ;
             default:
                 throw new Error(`Invalid endpoint: ${endpoint}`);
         }
@@ -38,7 +38,7 @@ export async function fetchData(endpoint, userId) {
 export async function fetchUserData(userId) {
 
     if (USE_MOCK_DATA) {
-        const userData = data.user_data.find(user => user.id === Number(userId));
+        const userData = data.user_data.find(user => user.id === parseInt(userId));
         
         if (!userData) {
             throw new Error(`No mock data found for user ID: ${userId}`);
