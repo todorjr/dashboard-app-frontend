@@ -3,8 +3,6 @@ import { BarChart, Bar, XAxis, YAxis, Legend, CartesianGrid, Tooltip, Responsive
 
 
 function ActivityChart({ data, loading }) {
-    console.log(data, 'DATA');
-
     const transformedData = data.map((item, index) => ({
         ...item,
         dayNumber: index + 1,
