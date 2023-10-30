@@ -74,7 +74,6 @@ export async function fetchUserData(userId) {
         try {
             const apiUrl = `${API_BASE_URL}${userId}`;
             const response = await axios.get(apiUrl);
-            console.log(response.data, 'response');
             return response.data;
         } catch (error) {
             console.error('Error fetching data from API:', error);
