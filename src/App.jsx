@@ -3,9 +3,7 @@ import Header from './components/Header'
 import Footer from './components/Footer'
 import Dashboard from './components/Dashboard';
 
-
 function App() {
-
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
     <Header />

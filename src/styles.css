@@ -60,10 +60,7 @@ body {
     cursor: pointer;
 }
 
-.footer .icon:hover {
-    background-color: #444
-}
-
+.footer .icon:hover { background-color: #444 }
 
 .footer small {
     color: #fff;
@@ -76,9 +73,8 @@ body {
     overflow: visible;
 }
 
-.title {
-    margin: 50px 0 50px 150px
-}
+.title { margin: 50px 0 50px 150px }
+
 .dashboard-title {
     font-size: 48px;
     font-weight: 500;
@@ -125,13 +121,9 @@ body {
     border-radius: 5px;
 }
 
-.session {
-    background-color: red
-}
+.session { background-color: red }
 
-.intense {
-    background-color: rgb(17, 17, 17)
-}
+.intense { background-color: rgb(17, 17, 17) }
 
 .score {
     background-color: #f0f0f0;
@@ -165,9 +157,7 @@ body {
     align-items: baseline;
 }
 
-.stats p {
-    margin: 0
-}
+.stats p { margin: 0 }
 
 .stats h2 {
     margin: 0;
@@ -180,41 +170,23 @@ body {
     border-radius: 5px;
 }
 
-.icon-calorie {
-    background-color: rgb(239 177 177)
-}
+.icon-calorie { background-color: rgb(239 177 177) }
 
-.icon-protein {
-    background-color: rgb(177 177 239)
-}
+.icon-protein { background-color: rgb(177 177 239) }
 
-.icon-carbo {
-    background-color: rgb(220 220 144);
-}
+.icon-carbo { background-color: rgb(220 220 144) }
 
-.icon-lipid {
-    background-color: rgb(253 216 211)
-}
+.icon-lipid { background-color: rgb(253 216 211) }
 
-.calorie {
-    color: red
-}
+.calorie { color: red }
 
-.protein {
-    color: blue
-}
+.protein { color: blue }
 
-.carbo {
-    color: yellow
-}
+.carbo { color: yellow }
 
-.lipid {
-    color: salmon
-}
+.lipid { color: salmon }
 
-.tracks {
-    background-color: #f0f0f0
-}
+.tracks { background-color: #f0f0f0 }
 
 .icon-column {
     display: flex;
@@ -234,8 +206,8 @@ body {
 }
 
 .custom-legend-title {
-        margin-bottom: 10px;
-        color: #000;
+    margin-bottom: 10px;
+    color: #000;
 }
 
 .line_chart_legend {
@@ -296,23 +268,37 @@ body {
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
+
     .container {
         display: flex;
         flex-direction: column;
         margin-left: 70px;
         gap: 40px;
     }
+
     .activity { width: 94.5% }
-    .column { margin-top: 40px; gap: 30px;}
+
+    .column {
+        margin-top: 40px;
+        gap: 30px;
+    }
+
     .icon-container {
         width: 50px;
         height: 50px;
     }
+
     .title { margin-left: 70px }
-    .side-section { margin-right: 48px; margin-bottom: 10px; }
+
+    .side-section {
+        margin-right: 48px;
+        margin-bottom: 10px;
+    }
+
     .container .side-section .state-track {
         display: flex;
         flex-direction: row;
         margin-left: 0;
     }
+    
 }

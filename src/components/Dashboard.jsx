@@ -4,7 +4,6 @@ import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
 import { BsEggFried } from 'react-icons/bs';
 import { getUserData, getActivityData, getSessionData, getIntensityData } from '../services/services.js';
 
-
 import ActivityChart from './charts/ActivityChart';
 import SessionChart from './charts/SessionChart';
 import IntensityChart from './charts/IntensityChart'
@@ -41,7 +40,6 @@ function Dashboard({ userId }) {
             userPerfomanceData()
         }, 2000)
     }, [userId]);
-
 
     const userName = userData?.data?.userInfos?.firstName
     const scoreValue = userData?.data?.todayScore ?? userData?.data?.score;

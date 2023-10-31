@@ -11,7 +11,6 @@ export const API_ENDPOINTS = {
     USER_PERFORMANCE: 'performance',
 };
 
-
 export async function fetchData(endpoint, userId) {
     if (USE_MOCK_DATA) {
         switch (endpoint) {
@@ -54,7 +53,6 @@ export async function fetchData(endpoint, userId) {
         }
     }
 }
-
 export async function fetchUserData(userId) {
     if (USE_MOCK_DATA) {
         const userData = data.user_data.filter(user => user.id === userId);
