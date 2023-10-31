@@ -82,7 +82,7 @@ function Dashboard({ userId }) {
 
 
                 <div className="side-section">
-                    <div className="column">
+                    <div className="state-track">
                         <StateTrack
                             iconColor='#fff'
                             value={userData?.data?.keyData?.calorieCount}

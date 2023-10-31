@@ -1,7 +1,7 @@
 import data from '../data/data.json';
 import axios from 'axios';
 
-const USE_MOCK_DATA = true;
+const USE_MOCK_DATA = false;
 
 export const API_BASE_URL = `http://localhost:3000/user/`;
 

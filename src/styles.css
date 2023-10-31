@@ -154,10 +154,11 @@ body {
     margin-right: 200px
 }
 
-.side-section .column {
+.side-section .state-track {
     display: flex;
     flex-direction: column;
     gap: 10px;
+    text-align: center;
 }
 
 .tracks {
@@ -309,4 +310,23 @@ body {
     width: 50px;
     height: 50px;
     animation: spin 2s linear infinite;
+}
+
+@media (min-width: 1024px) and (max-width: 1440px) {
+    .container {
+        display: flex;
+        flex-direction: column;
+        margin-left: 40px;
+        gap: 20px;
+    }
+    .first-section { width: 90%;}
+    .icon-container {
+        width: 50px;
+        height: 50px;
+    }
+    .title { margin-left: 40px }
+    .side-section .state-track {
+        display: flex;
+        flex-direction: row;
+    }
 }
