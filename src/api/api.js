@@ -18,7 +18,7 @@ export async function fetchData(endpoint, userId) {
                 return {
                     data: {
                         sessions: data.user_activity_data
-                            .filter((user) => user.userId === parseInt(userId))
+                            .filter((user) => user.userId === userId)
                             .flatMap((item) => item.sessions),
                     },
                 }
