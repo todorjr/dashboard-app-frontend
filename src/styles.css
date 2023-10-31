@@ -23,7 +23,7 @@ body {
 }
 
 .header .logo {
-    height: 50px; /* Adjust as needed */
+    height: 50px;
     width: auto;
 }
 
@@ -76,8 +76,6 @@ body {
     overflow: visible;
 }
 
-
-
 .title {
     margin: 50px 0 50px 150px
 }
@@ -95,9 +93,7 @@ body {
 
 .container {
     display: flex;
-    justify-content: space-between;
     margin-left: 150px;
-
 }
 
 .first-section {
@@ -141,10 +137,6 @@ body {
     background-color: #f0f0f0;
     text-align: start !important;
     padding-left: 10px;
-}
-
-.side-section {
-    margin-right: 200px
 }
 
 .side-section .state-track {
@@ -307,19 +299,20 @@ body {
     .container {
         display: flex;
         flex-direction: column;
-        margin-left: 40px;
-        gap: 20px;
+        margin-left: 70px;
+        gap: 40px;
     }
-    .activity { width: 57.5% }
+    .activity { width: 94.5% }
+    .column { margin-top: 40px; gap: 30px;}
     .icon-container {
         width: 50px;
         height: 50px;
     }
-    .title { margin-left: 40px }
+    .title { margin-left: 70px }
+    .side-section { margin-right: 48px; margin-bottom: 10px; }
     .container .side-section .state-track {
         display: flex;
         flex-direction: row;
         margin-left: 0;
-        width: 67%;
     }
 }

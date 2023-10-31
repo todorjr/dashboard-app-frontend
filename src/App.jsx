@@ -9,7 +9,7 @@ function App() {
   return (
     <div style={{ display: 'flex', flexDirection: 'column', height: '100vh' }}>
     <Header />
-    <div style={{ display: 'flex', flex: 1 }}>
+    <div style={{ display: 'flex' }}>
       <Footer />
       <Dashboard userId={12} />
     </div>

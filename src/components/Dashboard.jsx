@@ -51,7 +51,7 @@ function Dashboard({ userId }) {
     }];
     
     return (
-        <div style={{ flex: 1, padding: '20px' }}>
+        <div style={{ width: '94%' }}>
             <div className="title">
                 <h1 className='dashboard-title'>Bonjour <span className='user-name'>{userName}</span></h1>
                 <p>Félicitation ! Vous avez explosé vos objectifs hier 👏</p>
