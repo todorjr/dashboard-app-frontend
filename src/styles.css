@@ -73,7 +73,7 @@ body {
     overflow: visible;
 }
 
-.title { margin: 50px 0 50px 150px }
+.title { margin: 110px 0 50px 240px }
 
 .dashboard-title {
     font-size: 48px;
@@ -89,6 +89,7 @@ body {
 
 .container {
     display: flex;
+    justify-content: space-around;
     margin-left: 150px;
 }
 
