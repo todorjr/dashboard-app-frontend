@@ -82,6 +82,7 @@ function Dashboard({ userId }) {
                         <StateTrack
                             iconColor='#fff'
                             value={userData?.data?.keyData?.calorieCount}
+                            mesure='kCal'
                             label="Calories"
                             icon={<FaHotjar />}
                             iconClassName="calorie"
@@ -89,6 +90,7 @@ function Dashboard({ userId }) {
                         />
                         <StateTrack
                             value={userData?.data?.keyData?.proteinCount}
+                            mesure='g'
                             label="Proteines"
                             icon={<BsEggFried />}
                             iconClassName="protein"
@@ -97,6 +99,7 @@ function Dashboard({ userId }) {
                         />
                         <StateTrack
                             value={userData?.data?.keyData?.carbohydrateCount}
+                            mesure='g'
                             label="Glucides"
                             icon={<FaAppleAlt />}
                             iconClassName="carbo"
@@ -104,6 +107,7 @@ function Dashboard({ userId }) {
                         />
                         <StateTrack
                             value={userData?.data?.keyData?.lipidCount}
+                            mesure='g'
                             label="Lipides"
                             icon={<FaHamburger />}
                             iconClassName="lipid"
