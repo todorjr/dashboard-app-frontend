@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useParams } from 'react-router-dom';
 import StateTrack from './StateTrack';
 import { FaHotjar, FaHamburger, FaAppleAlt } from 'react-icons/fa';
 import { BsEggFried } from 'react-icons/bs';
@@ -9,7 +10,9 @@ import SessionChart from './charts/SessionChart';
 import IntensityChart from './charts/IntensityChart'
 import ScoreChart from './charts/ScoreChart';
 
-function Dashboard({ userId }) {
+function Dashboard() {
+    let { userId } = useParams();
+
     const [userData, setUserData] = useState({ data:[], loading: false });
     const [activity, setUserActivity] = useState({ data: [], loading: false });
     const [session, setUserSession] = useState({ data: [], loading: false });

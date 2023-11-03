@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { RouterProvider } from 'react-router-dom';
-import { createBrowserRouter } from 'react-router-dom';
+import { RouterProvider, createBrowserRouter,  Navigate } from 'react-router-dom';
 import './styles.css';
 import Header from './components/Header'
 import Footer from './components/Footer'
@@ -8,21 +7,27 @@ import Dashboard from './components/Dashboard'
 import { getUserData } from './services/services';
 
 function App() {
-  const [userId, setUserId] = useState(18);
+  const [userId, setUserId] = useState(null);
 
   useEffect(() => {
     async function fetchUserData() {
       const userData = await getUserData(userId);
       setUserId(userData.id);
     }
-    fetchUserData();
-  }, []); 
-  
+
+    if (userId) {
+      fetchUserData();
+    }
+  }, [userId]);
 
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Dashboard userId = { userId }/>,
+      element: <Navigate to={`/user/${userId || 18}`} replace />,
+    },
+    {
+      path: '/user/:userId',
+      element: <Dashboard />,
     },
   ]);
 
