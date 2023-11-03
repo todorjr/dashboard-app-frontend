@@ -23,7 +23,7 @@ function App() {
   const router = createBrowserRouter([
     {
       path: '/',
-      element: <Navigate to={`/user/${userId}`} replace />,
+      element: <Navigate to={`/user/${userId || 18}`} replace />,
     },
     {
       path: '/user/:userId',
